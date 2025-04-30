@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"slices"
 
-	"github.com/justwatch/facebook-marketing-api-golang-sdk/fb"
+	"github.com/bandlab/facebook-marketing-api-golang-sdk/fb"
 )
 
 // PageService contains all methods for working on pages.

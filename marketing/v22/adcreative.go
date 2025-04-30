@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/justwatch/facebook-marketing-api-golang-sdk/fb"
+	"github.com/bandlab/facebook-marketing-api-golang-sdk/fb"
 	"golang.org/x/sync/errgroup"
 )
 

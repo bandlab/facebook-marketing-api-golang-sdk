@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
+	"github.com/bandlab/facebook-marketing-api-golang-sdk/fb"
 	"github.com/go-kit/kit/log"
-	"github.com/justwatch/facebook-marketing-api-golang-sdk/fb"
 )
 
 // Version of the graph API being used.
