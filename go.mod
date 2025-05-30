@@ -1,4 +1,4 @@
-module github.com/justwatch/facebook-marketing-api-golang-sdk
+module github.com/bandlab/facebook-marketing-api-golang-sdk
 
 go 1.20
 

@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/bandlab/facebook-marketing-api-golang-sdk/fb"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
-	"github.com/justwatch/facebook-marketing-api-golang-sdk/fb"
 )
 
 // InsightsService contains all methods for working on audiences.
