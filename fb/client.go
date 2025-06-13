@@ -24,14 +24,23 @@ type Client struct {
 }
 
 // NewClient returns a http.Client containing a special transport with injects the version, token, and clientkey.
-func NewClient(l log.Logger, token, clientKey string) *Client {
+func NewClient(l log.Logger, token, clientKey string, options ...Option) *Client {
 	if l == nil {
 		l = log.NewNopLogger()
 	}
 
+	opts := &Options{
+		Transport: func(next http.RoundTripper) http.RoundTripper {
+			return next
+		},
+	}
+	for _, opt := range options {
+		opt(opts)
+	}
+
 	return &Client{
 		l:      l,
-		Client: &http.Client{Transport: newTokenTransport(token, clientKey, newRetryTransport(newLogAppUsageTransport(l, nil)))},
+		Client: &http.Client{Transport: opts.Transport(newTokenTransport(token, clientKey, newRetryTransport(newLogAppUsageTransport(l, nil))))},
 	}
 }
 

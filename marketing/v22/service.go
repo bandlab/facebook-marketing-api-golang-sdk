@@ -32,8 +32,8 @@ type Service struct {
 }
 
 // New initializes a new Service and all the Services contained.
-func New(l log.Logger, accessToken, appSecret string) (*Service, error) {
-	c := fb.NewClient(l, accessToken, appSecret)
+func New(l log.Logger, accessToken, appSecret string, opts ...fb.Option) (*Service, error) {
+	c := fb.NewClient(l, accessToken, appSecret, opts...)
 	err := c.GetJSON(context.Background(), fb.NewRoute(Version, "/me").String(), &struct{}{})
 	if err != nil {
 		return nil, err
