@@ -30,7 +30,7 @@ func NewClient(l log.Logger, token, clientKey string, options ...Option) *Client
 	}
 
 	opts := &Options{
-		Transport: func(next http.RoundTripper) http.RoundTripper {
+		transport: func(next http.RoundTripper) http.RoundTripper {
 			return next
 		},
 	}
@@ -40,7 +40,7 @@ func NewClient(l log.Logger, token, clientKey string, options ...Option) *Client
 
 	return &Client{
 		l:      l,
-		Client: &http.Client{Transport: opts.Transport(newTokenTransport(token, clientKey, newRetryTransport(newLogAppUsageTransport(l, nil))))},
+		Client: &http.Client{Transport: opts.transport(newTokenTransport(token, clientKey, newRetryTransport(newLogAppUsageTransport(l, nil))))},
 	}
 }
 
